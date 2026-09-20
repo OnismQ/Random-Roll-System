@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Dog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="newyear.css">
+</head>
+
+<body>
+    <div id="brandSplash" class="brand-splash"><span id="brandText" class="brand-text">LuckyDog</span></div>
+    <div id="lanternLayer"></div>
+    <div class="container reveal-after-splash">
+        <h1>Lucky Dog</h1>
+        <div class="name-display" id="nameDisplay">Start</div>
+        <button class="btn" id="startBtn">Start Random(It can stop randomly)</button>
+        <button class="btn" id="pauseBtn" disabled>Pause(You Don't Need To Stop)</button>
+    </div>
+
+    <button id="settingsBtn" class="settings-btn reveal-after-splash" aria-label="Settings">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>选择和管理名单</h2>
+            <div>
+                <label for="listSelector">选择名单:</label>
+                <select id="listSelector">
+                    <option value="default">默认名单</option>
+                </select>
+                <button id="addListConfigBtn">添加新名单</button>
+                <button id="deleteListConfigBtn" class="#deleteListConfigBtn">删除名单</button>
+
+            </div>
+
+            <textarea id="nameInput" rows="10" cols="30" placeholder="输入名单，每行一个名字"></textarea>
+            <br>
+            <button id="saveBtn" class="save-btn">保存(Save)</button>
+        </div>
+    </div>
+
+    <div class="footer reveal-after-splash">
+        <p>Copyright©2026 <a title="博客" href="https://blog.pixelcrafters.com.cn/" target="_blank"
+                rel="noopener">PixelCrafters</a><a title="个人博客" href="https://pixelcrafters.cn/" target="_blank"
+                rel="noopener"> LuckyDog Special Version</a> </p>
+    </div>
+
+    <script src="1.js"></script>
+    <script src="nameread.js"></script>
+    <canvas id="fireworksCanvas"></canvas>
+    <script src="effects.js"></script>
+    <script src="firework2026.js"></script>
+    <div id="confettiLayer"></div>
+    <script src="newyear.js"></script>
+</body>
+
+</html>

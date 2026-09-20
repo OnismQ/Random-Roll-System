@@ -1,0 +1,176 @@
+:root {
+    --page-background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+    --page-accent: #ffd700;
+    --page-control-text: #f5f5f5;
+    --page-surface: rgba(255, 255, 255, 0.1);
+    --page-surface-border: rgba(255, 255, 255, 0.25);
+    --page-control: rgba(255, 255, 255, 0.14);
+    --page-control-hover: rgba(255, 255, 255, 0.24);
+    --page-control-border: rgba(255, 255, 255, 0.3);
+    --page-footer: rgba(255, 255, 255, 0.12);
+    --page-shadow: rgba(0, 0, 0, 0.35);
+    --page-text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+:root[data-theme="gray"] {
+    --page-background:
+        radial-gradient(circle at 50% -20%, #3a3a3a 0%, transparent 46%),
+        linear-gradient(145deg, #191919, #242424);
+    --page-accent: #f2f2f2;
+    --page-control-text: #f2f2f2;
+    --page-surface: rgba(32, 32, 32, 0.86);
+    --page-surface-border: rgba(255, 255, 255, 0.12);
+    --page-control: rgba(255, 255, 255, 0.07);
+    --page-control-hover: rgba(255, 255, 255, 0.12);
+    --page-control-border: rgba(255, 255, 255, 0.14);
+    --page-footer: rgba(28, 28, 28, 0.86);
+    --page-shadow: rgba(0, 0, 0, 0.52);
+    --page-text-shadow: 1px 2px 14px rgba(0, 0, 0, 0.42);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    background: var(--page-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--page-accent);
+    text-shadow: var(--page-text-shadow);
+    overflow: hidden;
+    transition: color 0.3s ease, background 0.35s ease;
+}
+
+.container {
+    text-align: center;
+    background: var(--page-surface);
+    border: 1px solid var(--page-surface-border);
+    border-radius: 18px;
+    padding: 20px;
+    max-width: 320px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 12px 36px var(--page-shadow);
+    transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 2s;
+}
+
+.name-display {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 20px 0;
+    animation: flash 0.5s infinite;
+}
+
+@keyframes flash {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.btn {
+    background: var(--page-control);
+    border: 1px solid var(--page-control-border);
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--page-control-text);
+    backdrop-filter: blur(4px);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--page-control-hover);
+    transform: translateY(-1px);
+}
+
+.settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--page-control);
+    border: 1px solid var(--page-control-border);
+    color: var(--page-accent);
+    padding: 10px 14px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.settings-btn:hover {
+    background: var(--page-control-hover);
+    transform: translateY(-1px);
+}
+
+.footer {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    --base-transform: translateX(-50%);
+    transform: var(--base-transform);
+    width: min(70%, 480px);
+    background: var(--page-footer);
+    color: var(--page-accent);
+    text-align: center;
+    padding: 0px 12px;
+    z-index: 1000;
+    border: 1px solid var(--page-surface-border);
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.footer a {
+    color: var(--page-accent);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+:root[data-theme="gray"] canvas {
+    filter: invert(1) opacity(0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
